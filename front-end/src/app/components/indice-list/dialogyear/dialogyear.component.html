@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Seleccione un año</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <input matInput [(ngModel)]="data.year">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button class="button-success" [mat-dialog-close]="data.year" cdkFocusInitial>Confirmar</button>
+</div>

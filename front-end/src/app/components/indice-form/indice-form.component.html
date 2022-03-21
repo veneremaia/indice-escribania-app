@@ -1,0 +1,66 @@
+  
+<a class="btn d-flex justify-content-start col-1" ><i id="back" class="fas fa-chevron-left fa-2x" [routerLink]="['/indices']"></i></a>
+
+<h3 *ngIf="!edit" class="d-flex justify-content-center">Crear nueva escritura</h3>
+<h3 *ngIf="edit" class="d-flex justify-content-center">Editar escritura</h3>
+
+<div class="col-md-6 offset-md-3 pt-3">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="escrituraForm">
+                <div class="form-group">
+                    <label for="objeto" class="form-label">Objeto</label>
+                    <input type="text" name="objeto" formControlName="objeto" required class="form-control" autofocus>
+                </div>
+                <div class="row">
+                <div class="form-group col-6">
+                    <label for="nro_escritura" class="form-label">Nro. de escritura</label>
+
+                    <input type="number" name="nro_escritura" required formControlName="nro_escritura" class="form-control" >
+                </div>
+                
+                <div class="form-group col-6">
+                    <label for="nro_folio" class="form-label">Nro. de folio</label>
+                    <input type="number" name="nro_folio" required formControlName="nro_folio" class="form-control" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="nexo" class="form-label">Nexo</label>
+                    <input type="text" name="nexo" required formControlName="nexo"  class="form-control" >
+                </div>
+                <div class="form-group col-6">
+                    <label for="nombre1" class="form-label">Nombre parte 1</label>
+                    <input type="text" name="nombre1" required  formControlName="nombre1"  class="form-control" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="contranexo" class="form-label">Contranexo</label>
+                    <input type="text" name="contranexo" required formControlName="contranexo"  class="form-control" >
+                </div>
+                <div class="form-group col-6">
+                    <label for="nombre2" class="form-label">Nombre parte 2</label>
+                    <input type="text" name="nombre2" required formControlName="nombre2" class="form-control" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label for="day" class="form-label">Día</label>
+                    <input type="number" name="day" required formControlName="day"  class="form-control" >
+                </div>
+                <div class="form-group col-4">
+                    <label for="month" class="form-label">Mes</label>
+                    <input type="number" name="month" required  formControlName="month"  class="form-control" >
+                </div>
+                <div class="form-group col-4">
+                    <label for="year" class="form-label">Año</label>
+                    <input type="number" name="year" required formControlName="year"  class="form-control" >
+                </div>
+            </div>
+                <button class="btn btn-success btn-block" [disabled]="!escrituraForm.valid" (click)="edit ? updateIndice() : saveIndice()">GUARDAR</button>
+            </form>
+        </div>
+    </div>
+</div>
+

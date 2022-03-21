@@ -1,0 +1,70 @@
+<div class="row">
+
+    <button class="btn btn-primary col-3 m-3" (click)="openYear()"><i class="far fa-calendar-alt"></i>  Seleccionar año</button> 
+
+    <button class="btn btn-success col-3 m-3" (click)="createPdf()"><i class="fas fa-print"></i>  Imprimir</button> 
+
+</div>
+
+<div class="form-group row">
+  <input [(ngModel)]="searchValue" class="form-control" id="search" type="text" placeholder="Buscar">
+</div>
+<div id="my-table">
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" >Acto</th>
+        <th scope="col" >Intervinientes</th>
+        <th scope="col">Día</th>
+        <th scope="col">Mes</th>
+        <th scope="col">Año</th>
+        <th scope="col">Escritura</th>
+        <th scope="col">Folio</th>
+        <th scope='col'>
+        </th>
+        <th scope='col'>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let indice of indices | searchfilter:searchValue">
+        <th scope="row">{{indice.objeto}}</th>
+        <td> {{indice.nombre1}} {{indice.nexo}} {{indice.nombre2}}</td>
+        <td>{{indice.day}}</td>
+        <td>{{indice.month}}</td>
+        <td>{{indice.year}}</td>
+        <td>{{indice.nro_escritura}}</td>
+        <td>{{indice.nro_folio}}</td>
+        <td>
+            <a [routerLink]="['/indices/edit', indice.id]"  id="buttonEdit" class="btn btn-block" >
+              <i class="fas fa-edit"></i>
+            </a>
+        </td>
+        <td>
+            <button class="btn btn-outline-danger" (click)="open(content,indice.id)">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </td>
+      </tr>
+ 
+    </tbody>
+  </table>
+</div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-title">Eliminar escritura</h4>
+      <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>¿Está seguro de que quiere eliminar la escritura nro. <span class="text-primary">{{escrituraModal.nro_escritura}}?</span></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+      <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')" (click)="deleteIndice(escrituraModal.id)">Confirmar</button>
+    </div>
+  </ng-template>
+
