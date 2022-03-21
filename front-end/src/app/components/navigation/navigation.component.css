@@ -1,0 +1,8 @@
+#agregar-escritura{
+    color: green;
+    font-weight: bold;
+}
+
+#agregar-escritura:hover{
+    color: rgb(13, 214, 13);
+}
