@@ -25,7 +25,7 @@ export class IndiceFormComponent implements OnInit {
     nombre2: '',
     nexo: '',
     contranexo: '',
-    create_at: new Date()
+    create_at: undefined
     
   };
 
@@ -41,9 +41,9 @@ export class IndiceFormComponent implements OnInit {
     year: new FormControl(this.indice.year, Validators.required),
     objeto: new FormControl(this.indice.objeto, Validators.required),
     nombre1: new FormControl(this.indice.nombre1, Validators.required),
-    nombre2: new FormControl(this.indice.nombre2, Validators.required),
-    nexo: new FormControl(this.indice.nexo, Validators.required),
-    contranexo: new FormControl(this.indice.contranexo, Validators.required),
+    nombre2: new FormControl(this.indice.nombre2),
+    nexo: new FormControl(this.indice.nexo),
+    contranexo: new FormControl(this.indice.contranexo),
 
   })
 
@@ -110,7 +110,6 @@ export class IndiceFormComponent implements OnInit {
   saveIndice(){
     // Eliminamos los datos de id y de fecha ya que la base de datos los crea.
     this.setIndice();
-    delete this.indice.create_at;
     delete this.indice.id;
 
     if(!this.existeEscritura(this.indice)){
@@ -146,7 +145,6 @@ export class IndiceFormComponent implements OnInit {
     if(!this.existeEscritura(this.indice)){
       console.log("No existe escritura igual");
       this.setIndice();
-    delete this.indice.create_at;
     this.indicesService.updateIndice(Number(this.indice.id),this.indice).subscribe(
       res =>{
          console.log(res);

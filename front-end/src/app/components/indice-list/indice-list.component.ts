@@ -70,7 +70,7 @@ export class IndiceListComponent implements OnInit {
   
 
         res.forEach(element => {
-          if(element.year==this.filterYear){
+          if(element.year==this.filterYear && element.nombre2){
             this.indice.id = element.id;
             this.indice.nro_escritura = element.nro_escritura;
             this.indice.nro_folio = element.nro_folio;
@@ -251,15 +251,6 @@ export class IndiceListComponent implements OnInit {
       
       doc.addPage();
     })
-
-
-
-
-
-
-
-
-
     doc.save('indice.pdf');
 
   }
