@@ -10,6 +10,4 @@ export interface Indice{
     nombre2: string;
     nexo: string;
     contranexo: string;
-    create_at?: Date;
-
 }

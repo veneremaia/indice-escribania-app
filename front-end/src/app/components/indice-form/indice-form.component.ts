@@ -24,9 +24,7 @@ export class IndiceFormComponent implements OnInit {
     nombre1: '',
     nombre2: '',
     nexo: '',
-    contranexo: '',
-    create_at: undefined
-    
+    contranexo: ''    
   };
 
   indices : any = [];

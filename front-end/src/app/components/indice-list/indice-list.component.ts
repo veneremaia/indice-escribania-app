@@ -43,9 +43,7 @@ export class IndiceListComponent implements OnInit {
     nombre1: '',
     nombre2: '',
     nexo: '',
-    contranexo: '',
-    create_at: new Date()
-
+    contranexo: ''
   };
   constructor(public dialog: MatDialog, private indicesService: IndicesService, private modalService: NgbModal) {
 
@@ -81,7 +79,6 @@ export class IndiceListComponent implements OnInit {
             this.indice.nombre2 = element.nombre1;
             this.indice.nexo = element.contranexo;
             this.indice.contranexo = element.nexo;
-            this.indice.create_at = element.create_at;
             this.indice.objeto = element.objeto;
 
             this.indices.push(Object.assign({}, this.indice));
